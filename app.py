@@ -3,6 +3,7 @@ import requests
 from flask import Flask, render_template, jsonify, request
 from dotenv import load_dotenv
 
+# Load environment variables
 load_dotenv()
 
 app = Flask(__name__)
@@ -10,22 +11,37 @@ app = Flask(__name__)
 API_KEY = os.getenv("WEATHER_API_KEY")
 BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
 
-if not API_KEY:
-    raise RuntimeError("WEATHER_API_KEY is not set")
 
 @app.route("/")
 def index():
+    # Renders the frontend UI
     return render_template("index.html")
 
 
 @app.route("/weather")
 def weather():
-    
     city = request.args.get("city")
 
     if not city:
         return jsonify({"error": "City name is required"}), 400
 
+    # -----------------------------
+    # DEMO MODE (NO API KEY)
+    # -----------------------------
+    if not API_KEY:
+        return jsonify({
+            "city": city,
+            "country": "DEMO",
+            "temperature": 25,
+            "description": "clear sky (demo)",
+            "humidity": 50,
+            "wind_speed": 3,
+            "icon": "01d"
+        })
+
+    # -----------------------------
+    # REAL WEATHER MODE (API KEY)
+    # -----------------------------
     params = {
         "q": city,
         "appid": API_KEY,
@@ -33,11 +49,11 @@ def weather():
     }
 
     try:
-        res = requests.get(BASE_URL, params=params, timeout=5)
-        data = res.json()
+        response = requests.get(BASE_URL, params=params, timeout=5)
+        data = response.json()
 
-        if res.status_code != 200:
-            return jsonify({"error": "City not found"}), 404
+        if response.status_code != 200:
+            return jsonify({"error": data.get("message", "City not found")}), 404
 
         return jsonify({
             "city": data["name"],
