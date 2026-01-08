@@ -10,6 +10,8 @@ app = Flask(__name__)
 API_KEY = os.getenv("WEATHER_API_KEY")
 BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
 
+if not API_KEY:
+    raise RuntimeError("WEATHER_API_KEY is not set")
 
 @app.route("/")
 def index():
@@ -18,6 +20,7 @@ def index():
 
 @app.route("/weather")
 def weather():
+    
     city = request.args.get("city")
 
     if not city:
