@@ -8,7 +8,7 @@ load_dotenv()
 
 app = Flask(__name__)
 
-API_KEY = os.getenv("WEATHER_API_KEY")
+API_KEY = "YOUR API KEY "
 BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
 
 
