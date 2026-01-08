@@ -1,38 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Weather App</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <meta charset="UTF-8">
+  <title>Weather Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
 
-<div class="app-container">
-    <h1>🌦️ Weather App</h1>
+<div class="app">
+  <header>
+    <h1>Weather Dashboard</h1>
+    <p>Live city-based weather insights</p>
+  </header>
 
-    <div class="search-box">
-        <input type="text" id="cityInput" placeholder="Enter city name">
-        <button onclick="getWeather()">Search</button>
+  <form id="weatherForm" class="form-card">
+    <div class="form-row">
+      <div class="form-group">
+        <input type="text" id="cityInput" required>
+        <label>City Name</label>
+      </div>
+      <button type="submit">Search</button>
     </div>
+  </form>
 
-    <div id="loading" class="loading hidden">Loading...</div>
+  <div id="loading" class="loading hidden">Fetching weather data...</div>
 
-    <div id="weatherCard" class="weather-card hidden">
-        <h2 id="location"></h2>
-        <img id="weatherIcon" alt="Weather Icon">
-        <p id="temperature"></p>
-        <p id="condition"></p>
-
-        <div class="details">
-            <span id="humidity"></span>
-            <span id="wind"></span>
-        </div>
+  <div id="weatherCard" class="weather-card hidden">
+    <div class="top">
+      <h2 id="city"></h2>
+      <img id="icon">
     </div>
+    <h3 id="temp"></h3>
+    <p id="condition"></p>
 
-    <p id="error" class="error"></p>
+    <div class="stats">
+      <div>
+        <span>Humidity</span>
+        <strong id="humidity"></strong>
+      </div>
+      <div>
+        <span>Wind</span>
+        <strong id="wind"></strong>
+      </div>
+    </div>
+  </div>
+
+  <p id="error" class="error"></p>
 </div>
 
-<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></cript>
 </body>
 </html>

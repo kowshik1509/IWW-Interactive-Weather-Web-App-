@@ -1,88 +1,118 @@
 * {
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
 }
 
 body {
-    margin: 0;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #4facfe, #00f2fe);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
 
-.app-container {
-    background: rgba(0, 0, 0, 0.25);
-    padding: 30px;
-    border-radius: 16px;
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-    animation: fadeIn 1s ease;
+.app {
+  width: 380px;
 }
 
-.search-box {
-    display: flex;
-    margin-bottom: 20px;
+header {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.search-box input {
-    flex: 1;
-    padding: 10px;
-    border-radius: 8px 0 0 8px;
-    border: none;
-    outline: none;
+.form-card {
+  background: rgba(255,255,255,0.15);
+  padding: 20px;
+  border-radius: 14px;
+  backdrop-filter: blur(10px);
 }
 
-.search-box button {
-    padding: 10px 16px;
-    border: none;
-    background: #ff9800;
-    color: #fff;
-    border-radius: 0 8px 8px 0;
-    cursor: pointer;
+.form-row {
+  display: flex;
+  gap: 10px;
 }
 
-.search-box button:hover {
-    background: #e68900;
+.form-group {
+  position: relative;
+  flex: 1;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+.form-group label {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #555;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+.form-group input:focus + label,
+.form-group input:valid + label {
+  top: -6px;
+  font-size: 11px;
+  color: #ffd369;
+}
+
+button {
+  background: #ffd369;
+  border: none;
+  border-radius: 8px;
+  padding: 0 16px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .weather-card {
-    margin-top: 20px;
-    animation: slideUp 0.6s ease;
+  margin-top: 20px;
+  background: rgba(255,255,255,0.18);
+  padding: 20px;
+  border-radius: 16px;
+  animation: fadeUp 0.6s ease;
+}
+
+.weather-card .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .weather-card img {
-    width: 80px;
+  width: 60px;
 }
 
-.details {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
+.stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
 }
 
 .loading {
-    margin-top: 20px;
-}
-
-.hidden {
-    display: none;
+  text-align: center;
+  margin-top: 15px;
 }
 
 .error {
-    color: #ffb3b3;
-    margin-top: 10px;
+  text-align: center;
+  color: #ffb3b3;
+  margin-top: 10px;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0 }
-    to { opacity: 1 }
+.hidden {
+  display: none;
 }
 
-@keyframes slideUp {
-    from { transform: translateY(20px); opacity: 0 }
-    to { transform: translateY(0); opacity: 1 }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }

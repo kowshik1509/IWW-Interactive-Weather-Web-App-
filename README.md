@@ -1,72 +1,24 @@
-# 🌦️ Weather Web Application (Flask)
+# 🌦️ Weather Web Application
 
-A modern weather web app built with Flask and OpenWeatherMap API.
+A professional Flask-based weather app with interactive frontend UI.
 
 ## 🚀 Features
 - Live weather data
-- AJAX-based search (no reload)
-- Responsive & mobile-friendly
-- Weather icons & animations
-- Error handling
-- Environment variable support
+- Interactive form UI
+- AJAX (no reload)
+- Professional animations
+- Secure API key handling
 
-## 🔑 Setup Instructions
+## 🔧 Setup
 
-### 1️⃣ Clone the repository
-git clone https://github.com/yourusername/weather_app.git
-
-cd weather_app
-
-
-### 2️⃣ Create virtual environment
-
-
-python -m venv venv
-source venv/bin/activate # Windows: venv\Scripts\activate
-
-
-### 3️⃣ Install dependencies
-
-
+1. Install dependencies
 pip install -r requirements.txt
 
-
-### 4️⃣ Set API Key
-Create a `.env` file:
-
-
+2. Create `.env` file
 WEATHER_API_KEY=your_openweathermap_api_key
 
-
-Get your API key from:
-https://openweathermap.org/api
-
-### 5️⃣ Run the app
-
-
+3. Run app
 python app.py
 
-
-### 6️⃣ Open in browser
-
-
+4. Open browser
 http://127.0.0.1:5000
-
-
----
-
-## 📱 Responsive & Production Ready
-Designed for desktop and mobile devices.
-
----
-
-## 👨‍💻 Author
-Senior Full-Stack Python Developer
-
-✅ Final Result
-
-✔ Fully working Flask app
-✔ Live weather API
-✔ Clean & modern UI
-✔ AJAX-based dynamic updates
-✔ Well-documented & scalable
