@@ -10,27 +10,31 @@
 
 <div class="app">
   <header>
-    <h1>Weather Dashboard</h1>
-    <p>Live city-based weather insights</p>
+    <h1>🌦 Weather Dashboard</h1>
+    <p>Search • Pin • Track weather</p>
   </header>
 
+  <!-- SEARCH FORM -->
   <form id="weatherForm" class="form-card">
     <div class="form-row">
       <div class="form-group">
-        <input type="text" id="cityInput" required>
+        <input type="text" id="cityInput" required />
         <label>City Name</label>
       </div>
       <button type="submit">Search</button>
     </div>
   </form>
 
-  <div id="loading" class="loading hidden">Fetching weather data...</div>
+  <!-- LOADING -->
+  <div id="loading" class="loading hidden">Fetching weather...</div>
 
+  <!-- MAIN WEATHER CARD -->
   <div id="weatherCard" class="weather-card hidden">
     <div class="top">
       <h2 id="city"></h2>
-      <img id="icon">
+      <img id="icon" />
     </div>
+
     <h3 id="temp"></h3>
     <p id="condition"></p>
 
@@ -44,11 +48,22 @@
         <strong id="wind"></strong>
       </div>
     </div>
+
+    <button id="pinBtn" class="pin-btn">📌 Pin Location</button>
   </div>
+
+  <!-- PINNED CITIES -->
+  <h3 class="pin-title">📍 Pinned Locations</h3>
+  <div id="pinnedContainer" class="pinned-container"></div>
 
   <p id="error" class="error"></p>
 </div>
 
-<script src="{{ url_for('static', filename='js/script.js') }}"></cript>
+
+
+  <p id="error" class="error"></p>
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>

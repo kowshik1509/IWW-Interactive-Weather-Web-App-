@@ -116,3 +116,143 @@ button {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* --- ANIMATIONS --- */
+.weather-card {
+  animation: slideFade 0.6s ease;
+}
+
+@keyframes slideFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.pin-btn {
+  margin-top: 12px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ffb703, #ffd369);
+  font-weight: bold;
+}
+
+.pin-btn:hover {
+  transform: scale(1.03);
+}
+
+/* --- PINNED CARDS --- */
+.pin-title {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.pinned-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.pin-card {
+  background: rgba(255,255,255,0.18);
+  padding: 12px;
+  border-radius: 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.pin-card:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.pin-card h4 {
+  margin: 5px 0;
+}
+
+.pin-card span {
+  font-size: 14px;
+}
+
+.unpin-btn {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.25);
+  border: none;
+  color: white;
+  font-size: 12px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+}
+
+.pin-card {
+  position: relative;
+}
+
+.pin-card:hover .unpin-btn {
+  display: block;
+}
+
+.unpin-btn:hover {
+  background: rgba(255, 0, 0, 0.7);
+}
+
+
+/* ============================= */
+/* WEATHER BACKGROUND THEMES */
+/* ============================= */
+
+body {
+  transition: background 1s ease;
+}
+
+/* ☀️ CLEAR */
+.weather-clear {
+  background: linear-gradient(135deg, #fbc531, #4cd137);
+}
+
+/* ☁️ CLOUDS */
+.weather-clouds {
+  background: linear-gradient(135deg, #8c8c8c, #dcdde1);
+}
+
+/* 🌧️ RAIN */
+.weather-rain {
+  background: linear-gradient(135deg, #2f3640, #718093);
+  animation: rainPulse 4s infinite;
+}
+
+/* ❄️ SNOW */
+.weather-snow {
+  background: linear-gradient(135deg, #dcdde1, #f5f6fa);
+}
+
+/* 🌫️ MIST / FOG */
+.weather-mist {
+  background: linear-gradient(135deg, #7f8fa6, #c8d6e5);
+}
+
+/* ⚡ STORM */
+.weather-storm {
+  background: linear-gradient(135deg, #353b48, #000000);
+}
+
+/* RAIN ANIMATION */
+@keyframes rainPulse {
+  0% { filter: brightness(1); }
+  50% { filter: brightness(0.85); }
+  100% { filter: brightness(1); }
+}
